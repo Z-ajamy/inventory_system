@@ -1,7 +1,8 @@
 from dataclasses import dataclass, field
 from datetime import datetime
-from domain.shared.value_objects import Money
+
 from domain.shared.utils import create_uuid4
+from domain.shared.value_objects import Money
 
 
 @dataclass(slots=True, kw_only=True)

@@ -1,12 +1,12 @@
-from enum import Enum, auto
-from typing import Any, List
-from dataclasses import dataclass, field
+from dataclasses import dataclass
 from decimal import Decimal
+from enum import Enum, auto
+from typing import Any
 
 
 class OldStrEnum(str, Enum):
     @staticmethod
-    def _generate_next_value_(name: str, start: int, count: int, last_values: List[Any]) -> str:
+    def _generate_next_value_(name: str, start: int, count: int, last_values: list[Any]) -> str:
         return name.lower()
 
 

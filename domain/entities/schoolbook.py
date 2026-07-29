@@ -1,6 +1,7 @@
-from dataclasses import dataclass, field
-from domain.shared.base import Product
-from domain.shared.base import Info
+from dataclasses import dataclass
+
+from domain.shared.base import Info, Product
+
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class SchoolBookSubject(Info):
