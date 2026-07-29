@@ -1,5 +1,6 @@
 from domain.entities.schoolbook import SchoolBook
 
+
 def test_schoolbook_creation():
     book = SchoolBook(
         sku="BOOK-MATH-G1",

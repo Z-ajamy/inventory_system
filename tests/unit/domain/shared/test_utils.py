@@ -1,5 +1,6 @@
 from domain.shared.utils import create_uuid4
 
+
 def test_create_uuid4_returns_valid_string():
     uuid_str = create_uuid4()
     assert isinstance(uuid_str, str)

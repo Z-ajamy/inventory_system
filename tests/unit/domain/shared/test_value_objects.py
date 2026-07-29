@@ -1,6 +1,9 @@
-import pytest
 from decimal import Decimal
-from domain.shared.value_objects import Money, Currency
+
+import pytest
+
+from domain.shared.value_objects import Currency, Money
+
 
 def test_money_creation_success():
     price = Money(amount=Decimal("10.50"), currency=Currency.USD)

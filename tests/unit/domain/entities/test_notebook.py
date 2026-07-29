@@ -1,5 +1,6 @@
 from domain.entities.notebook import NoteBook
 
+
 def test_notebook_creation():
     notebook = NoteBook(
         sku="NB-96-SQ",

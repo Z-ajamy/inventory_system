@@ -1,8 +1,11 @@
-import pytest
-from decimal import Decimal
 from datetime import datetime
+from decimal import Decimal
+
+import pytest
+
 from domain.entities.stock_batch import StockBatch
 from domain.shared.value_objects import Money
+
 
 @pytest.fixture
 def sample_batch():

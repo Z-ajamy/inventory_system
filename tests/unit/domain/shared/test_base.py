@@ -1,5 +1,6 @@
 from domain.shared.base import Brand, ProductFamily
 
+
 def test_brand_supports_family():
     brand = Brand(
         name="Faber-Castell", 
