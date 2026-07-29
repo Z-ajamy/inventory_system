@@ -23,4 +23,7 @@ class StockBatch:
 
         self.current_quantity -= amount
 
-
+    def change_price(self, amount: Money):
+        if amount > Money({"amount": "0.0", "currency": amount.currency}):
+            raise ValueError("Amount must be positive")
+        self.item_price = amount

@@ -12,5 +12,3 @@ class RulerType(Info):
 class RulerProduct(Product):
     ruler_type_id: str
     length_cm: int
-
-
