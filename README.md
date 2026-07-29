@@ -1,1 +1,1 @@
-Hi inventory_system
+library inventory_system
