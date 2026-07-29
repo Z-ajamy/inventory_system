@@ -1,1 +1,1 @@
-library inventory_system
+library inventory system
