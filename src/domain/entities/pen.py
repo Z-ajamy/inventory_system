@@ -7,11 +7,12 @@ from domain.shared.base import Info, Product
 class PenColor(Info):
     pass
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class PenType(Info):
     pass
 
-   
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class PenProduct(Product):
     color_id: str

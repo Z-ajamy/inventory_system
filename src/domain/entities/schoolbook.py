@@ -7,6 +7,7 @@ from domain.shared.base import Info, Product
 class SchoolBookSubject(Info):
     pass
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class SchoolBookClass(Info):
     pass
@@ -17,4 +18,4 @@ class SchoolBook(Product):
     subject_id: str
     class_id: str
     academic_year: str
-    #Publisher is the Brand
+    # Publisher is the Brand
