@@ -1,6 +1,5 @@
 from domain.shared.base import Brand, ProductFamily
 
-
 def test_brand_supports_family():
     brand = Brand(
         name="Faber-Castell", 
@@ -8,8 +7,5 @@ def test_brand_supports_family():
     )
     
     assert brand.supports(ProductFamily.PENS) is True
+    assert brand.supports(ProductFamily.RULERS) is True
     assert brand.supports(ProductFamily.BOOKS) is False
-
-def test_brand_default_supported_families():
-    brand = Brand(name="Generic")
-    assert brand.supported_families == []

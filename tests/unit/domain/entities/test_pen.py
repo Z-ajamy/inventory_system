@@ -1,6 +1,5 @@
 from domain.entities.pen import PenProduct
 
-
 def test_pen_product_creation():
     pen = PenProduct(
         sku="PEN-BLUE-001",

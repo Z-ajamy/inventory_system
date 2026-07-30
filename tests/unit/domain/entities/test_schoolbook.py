@@ -1,6 +1,5 @@
 from domain.entities.schoolbook import SchoolBook
 
-
 def test_schoolbook_creation():
     book = SchoolBook(
         sku="BOOK-MATH-G1",
@@ -11,3 +10,4 @@ def test_schoolbook_creation():
     )
     assert book.subject_id == "math"
     assert book.academic_year == "2023/2024"
+    assert book.id is not None

@@ -2,7 +2,7 @@ from dataclasses import dataclass
 from decimal import Decimal
 from enum import Enum, auto
 from typing import Any
-
+from domain.exceptions.money import NegativeMoneyError
 
 class OldStrEnum(str, Enum):
     @staticmethod
@@ -21,5 +21,4 @@ class Money:
 
     def __post_init__(self):
         if self.amount < Decimal("0.0"):
-            raise ValueError("Money amount cannot be negative")
-
+            raise NegativeMoneyError(amount=float(self.amount))
