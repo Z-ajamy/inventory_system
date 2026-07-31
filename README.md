@@ -1,5 +1,7 @@
 #library inventory system
 
+```mermaid
+
 classDiagram
     %% Value Objects
     class Money {
@@ -73,3 +75,4 @@ classDiagram
     DraftInvoice o-- InvoiceItem : gathers
     Invoice *-- InvoiceItem : owns
     InvoiceItem --> Money : uses
+```
