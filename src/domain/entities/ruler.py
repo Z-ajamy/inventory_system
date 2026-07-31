@@ -1,16 +1,17 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
 from domain.exceptions.ruler import InvalidRulerLengthError
-from domain.shared.base import Info, Product
+from domain.shared.base import Info, Product, ProductFamily
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class RulerType(Info):
-    pass  ## لتحديد نوع المسطرة - دراسية او هندسة وهكذا
+    pass
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class RulerProduct(Product):
+    type: ProductFamily = field(default=ProductFamily.RULERS, init=False)
     ruler_type_id: str
     length_cm: int
 

@@ -29,5 +29,6 @@ class Brand(Info):
 @dataclass(slots=True, kw_only=True, frozen=True)
 class Product:
     id: str = field(default_factory=create_uuid4)
+    type: ProductFamily
     sku: str
     brand_id: str

@@ -1,6 +1,6 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 
-from domain.shared.base import Info, Product
+from domain.shared.base import Info, Product, ProductFamily
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
@@ -15,6 +15,7 @@ class SchoolBookClass(Info):
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class SchoolBook(Product):
+    type: ProductFamily = field(default=ProductFamily.BOOKS, init=False)
     subject_id: str
     class_id: str
     academic_year: str
