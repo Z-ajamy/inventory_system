@@ -1,9 +1,8 @@
 from dataclasses import dataclass, field
 from decimal import Decimal
 
-from domain.entities.invoice.item import InvoiceItem
-
 from domain.entities.invoice.invoice import Invoice
+from domain.entities.invoice.invoice_item import InvoiceItem
 from domain.entities.stock_batch import StockBatch
 from domain.exceptions.invoice.exceptions import (
     AnonymousLargeInvoiceError,
@@ -14,7 +13,7 @@ from domain.shared.value_objects import Money
 
 @dataclass(slots=True, kw_only=True)
 class DraftInvoice:
-    customer_name: str | None = None
+    customer_id: str | None = None
     _items: list[InvoiceItem] = field(default_factory=list, init=False)
 
     def add_item(self, batch: StockBatch, quantity: int) -> None:

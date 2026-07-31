@@ -2,8 +2,7 @@ from dataclasses import dataclass, field
 from datetime import datetime
 from decimal import Decimal
 
-from domain.entities.invoice.item import InvoiceItem
-
+from domain.entities.invoice.invoice_item import InvoiceItem
 from domain.shared.utils import create_uuid4
 from domain.shared.value_objects import Money
 
