@@ -5,12 +5,12 @@ from domain.shared.base import Info, Product, ProductFamily
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class SchoolBookSubject(Info):
-    pass
+    category: InfoCategory = field(default=InfoCategory.SCHOOLBOOK_SUBJECT, init=False)
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class SchoolBookClass(Info):
-    pass
+    category: InfoCategory = field(default=InfoCategory.SCHOOLBOOK_CLASS, init=False)
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)

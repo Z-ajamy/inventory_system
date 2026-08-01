@@ -1,16 +1,16 @@
 from dataclasses import dataclass, field
 
-from domain.shared.base import Info, Product, ProductFamily
+from domain.shared.base import Info, InfoCategory, Product, ProductFamily
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class PenColor(Info):
-    pass
+    category: InfoCategory = field(default=InfoCategory.PEN_COLOR, init=False)
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class PenType(Info):
-    pass
+    category: InfoCategory = field(default=InfoCategory.PEN_TYPE, init=False)
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)

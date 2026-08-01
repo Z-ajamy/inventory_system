@@ -6,7 +6,7 @@ from domain.shared.base import Info, Product, ProductFamily
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class RulerType(Info):
-    pass
+    category: InfoCategory = field(default=InfoCategory.RULER_TYPE, init=False)
 
 
 @dataclass(slots=True, frozen=True, kw_only=True)
