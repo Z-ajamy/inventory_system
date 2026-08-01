@@ -1,0 +1,9 @@
+from typing import Protocol
+
+from domain.entities.customer import Customer
+
+
+class CustomerRepositoryProtocol(Protocol):
+    def save(self, customer: Customer) -> None: ...
+    def get_by_id(self, customer_id: str) -> Customer | None: ...
+    def get_by_name(self, name: str) -> tuple[Customer, ...]: ...

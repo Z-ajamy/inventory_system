@@ -57,7 +57,6 @@ class Money:
         return self.__mul__(multiplier)
 
     def __sub__(self, other: Any) -> "Money":
-
         if not isinstance(other, Money):
             raise InvalidMoneyOperationError(
                 operation="subtraction", unsupported_type=type(other).__name__

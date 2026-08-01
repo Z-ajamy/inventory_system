@@ -10,7 +10,7 @@ from domain.shared.value_objects import Money
 @dataclass(slots=True, frozen=True, kw_only=True)
 class Invoice:
     id: str = field(default_factory=create_uuid4)
-    customer_id: str | None  # تم التغيير إلى customer_id
+    customer_id: str | None
     items: tuple[InvoiceItem, ...]
     date: datetime = field(default_factory=datetime.now)
 
