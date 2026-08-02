@@ -16,12 +16,12 @@ class DraftInvoice:
     customer_id: str | None = None
     _items: list[InvoiceItem] = field(default_factory=list, init=False)
 
-    def add_item(self, batch: StockBatch, quantity: int) -> None:
+    def add_item(self, batch: StockBatch, quantity: int, selling_price: Money) -> None:
         item = InvoiceItem(
             product_id=batch.product_id,
             stock_batch_id=batch.id,
             num_of_items=quantity,
-            price_of_item=batch.item_price,
+            price_of_item=selling_price,
         )
         self._items.append(item)
 

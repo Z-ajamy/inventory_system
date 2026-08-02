@@ -4,7 +4,7 @@ from domain.shared.utils import create_uuid4
 def test_create_uuid4_returns_valid_string():
     uuid_str = create_uuid4()
     assert isinstance(uuid_str, str)
-    assert len(uuid_str) == 32  # hex format of uuid4 without dashes
+    assert len(uuid_str) == 32  # hex format without dashes
 
 
 def test_create_uuid4_is_unique():

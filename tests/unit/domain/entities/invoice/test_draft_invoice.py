@@ -15,22 +15,20 @@ from domain.shared.value_objects import Money
 @pytest.fixture
 def sample_batch_low_price():
     return StockBatch(
-        product_id="prod-low",
-        init_quantity=100,
-        current_quantity=100,
+        init_product_id="prod-low",
+        init_init_quantity=100,
+        init_current_quantity=100,
         unit_cost=Money(amount=Decimal("5.0")),
-        item_price=Money(amount=Decimal("10.0")),
     )
 
 
 @pytest.fixture
 def sample_batch_high_price():
     return StockBatch(
-        product_id="prod-high",
-        init_quantity=100,
-        current_quantity=100,
+        init_product_id="prod-high",
+        init_init_quantity=100,
+        init_current_quantity=100,
         unit_cost=Money(amount=Decimal("50.0")),
-        item_price=Money(amount=Decimal("150.0")),
     )
 
 
@@ -41,7 +39,11 @@ def anonymous_limit():
 
 def test_draft_add_and_remove_item(sample_batch_low_price):
     draft = DraftInvoice()
-    draft.add_item(sample_batch_low_price, quantity=2)
+    draft.add_item(
+        sample_batch_low_price,
+        quantity=2,
+        selling_price=Money(amount=Decimal("10.0")),
+    )
     assert draft.current_total.amount == Decimal("20.0")
 
     draft.remove_item("prod-low")
@@ -59,7 +61,11 @@ def test_draft_finalize_anonymous_large_raises_error(
     sample_batch_high_price, anonymous_limit
 ):
     draft = DraftInvoice()
-    draft.add_item(sample_batch_high_price, quantity=1)
+    draft.add_item(
+        sample_batch_high_price,
+        quantity=1,
+        selling_price=Money(amount=Decimal("150.0")),
+    )
 
     with pytest.raises(AnonymousLargeInvoiceError) as exc_info:
         draft.finalize(anonymous_limit=anonymous_limit)
@@ -70,7 +76,11 @@ def test_draft_finalize_success_anonymous_small(
     sample_batch_low_price, anonymous_limit
 ):
     draft = DraftInvoice()
-    draft.add_item(sample_batch_low_price, quantity=3)
+    draft.add_item(
+        sample_batch_low_price,
+        quantity=3,
+        selling_price=Money(amount=Decimal("10.0")),
+    )
 
     final_invoice = draft.finalize(anonymous_limit=anonymous_limit)
     assert isinstance(final_invoice, Invoice)
@@ -80,7 +90,11 @@ def test_draft_finalize_success_anonymous_small(
 
 def test_draft_finalize_success_with_customer(sample_batch_high_price, anonymous_limit):
     draft = DraftInvoice(customer_id="cust-123")
-    draft.add_item(sample_batch_high_price, quantity=2)
+    draft.add_item(
+        sample_batch_high_price,
+        quantity=2,
+        selling_price=Money(amount=Decimal("150.0")),
+    )
 
     final_invoice = draft.finalize(anonymous_limit=anonymous_limit)
     assert isinstance(final_invoice, Invoice)

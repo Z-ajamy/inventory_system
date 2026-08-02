@@ -1,6 +1,7 @@
-from dataclasses import dataclass, field
+from dataclasses import InitVar, dataclass, field
 from datetime import datetime
 
+from domain.exceptions.shared import InvalidStringError
 from domain.exceptions.stock_batch import (
     InsufficientStockError,
     InvalidBatchQuantityError,
@@ -13,28 +14,60 @@ from domain.shared.value_objects import Money
 @dataclass(slots=True, kw_only=True)
 class StockBatch:
     id: str = field(default_factory=create_uuid4)
-    product_id: str
-    init_quantity: int
-    current_quantity: int
     unit_cost: Money
-    item_price: Money
     received_at: datetime = field(default_factory=datetime.now)
 
-    def __post_init__(self):
-        if self.init_quantity < 0 or self.current_quantity < 0:
-            raise InvalidBatchQuantityError(
-                quantity=min(self.init_quantity, self.current_quantity)
-            )
+    init_product_id: InitVar[str]
+    init_init_quantity: InitVar[int]
+    init_current_quantity: InitVar[int]
+
+    _product_id: str = field(init=False)
+    _init_quantity: int = field(init=False)
+    _current_quantity: int = field(init=False)
+
+    def __post_init__(
+        self, init_product_id: str, init_init_quantity: int, init_current_quantity: int
+    ):
+        self.product_id = init_product_id
+        self.init_quantity = init_init_quantity
+        self.current_quantity = init_current_quantity
+
+    @property
+    def product_id(self) -> str:
+        return self._product_id
+
+    @product_id.setter
+    def product_id(self, value: str):
+        if not value or not str(value).strip():
+            raise InvalidStringError(field_name="product_id")
+        self._product_id = str(value).strip()
+
+    @property
+    def init_quantity(self) -> int:
+        return self._init_quantity
+
+    @init_quantity.setter
+    def init_quantity(self, value: int):
+        if value < 0:
+            raise InvalidBatchQuantityError(quantity=value)
+        self._init_quantity = value
+
+    @property
+    def current_quantity(self) -> int:
+        return self._current_quantity
+
+    @current_quantity.setter
+    def current_quantity(self, value: int):
+        if value < 0:
+            raise InvalidBatchQuantityError(quantity=value)
+        self._current_quantity = value
 
     def sell_items(self, amount: int) -> None:
         if amount < 0:
             raise NegativeSellAmountError(amount=amount)
-        elif amount > self.current_quantity:
+        elif amount > self._current_quantity:
             raise InsufficientStockError(
-                requested=amount, available=self.current_quantity
+                requested=amount, available=self._current_quantity
             )
 
-        self.current_quantity -= amount
-
-    def change_price(self, price: Money):
-        self.item_price = price
+        self.current_quantity = self._current_quantity - amount

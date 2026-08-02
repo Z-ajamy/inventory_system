@@ -1,4 +1,4 @@
-from typing import Protocol
+from typing import Any, Protocol
 
 from domain.interfaces.customer_repository import CustomerRepositoryProtocol
 from domain.interfaces.invoice_repository import InvoiceRepositoryProtocol
@@ -17,7 +17,7 @@ class UnitOfWorkProtocol(Protocol):
     batches: StockBatchRepositoryProtocol
 
     def __enter__(self) -> "UnitOfWorkProtocol": ...
-    def __exite(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
+    def __exit__(self, exc_type: Any, exc_val: Any, exc_tb: Any) -> None: ...
 
     def commit(self) -> None: ...
 
