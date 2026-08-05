@@ -14,7 +14,7 @@ class UpdateCustomerUseCase:
                 raise CustomerNotFoundError(customer_id=request.customer_id)
 
             customer.name = request.name
-            
+
             if request.phone is not None:
                 customer.phone = str(request.phone).strip()
 

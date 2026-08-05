@@ -9,11 +9,8 @@ class RegisterCustomerUseCase:
 
     def execute(self, request: RegisterCustomerRequestDTO) -> str:
         with self.uow as db:
-            customer = Customer(
-                init_name=request.name,
-                phone=request.phone
-            )
-            
+            customer = Customer(init_name=request.name, phone=request.phone)
+
             db.customers.save(customer)
             db.commit()
 

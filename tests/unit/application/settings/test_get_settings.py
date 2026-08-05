@@ -1,4 +1,3 @@
-import pytest
 from decimal import Decimal
 
 from application.settings.get_settings import GetCurrentSettingsUseCase

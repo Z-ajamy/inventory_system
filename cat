@@ -1,0 +1,142 @@
+
+[92m📂 === Project Structure ===[0m
+└── [96m./[0m
+    ├── [97mcat[0m [90m(./cat)[0m
+    ├── [96msrc/[0m
+    │   ├── [97m__init__.py[0m [90m(./src/__init__.py)[0m
+    │   ├── [96mapplication/[0m
+    │   │   ├── [97m__init__.py[0m [90m(./src/application/__init__.py)[0m
+    │   │   ├── [96mcatalog/[0m
+    │   │   │   ├── [97mcreate_product.py[0m [90m(./src/application/catalog/create_product.py)[0m
+    │   │   │   ├── [97mdtos.py[0m [90m(./src/application/catalog/dtos.py)[0m
+    │   │   │   ├── [97mget_product.py[0m [90m(./src/application/catalog/get_product.py)[0m
+    │   │   │   └── [97mupdate_product_price.py[0m [90m(./src/application/catalog/update_product_price.py)[0m
+    │   │   ├── [96mcustomer/[0m
+    │   │   │   ├── [97mdtos.py[0m [90m(./src/application/customer/dtos.py)[0m
+    │   │   │   ├── [97mget_customer.py[0m [90m(./src/application/customer/get_customer.py)[0m
+    │   │   │   ├── [97mregister_customer.py[0m [90m(./src/application/customer/register_customer.py)[0m
+    │   │   │   └── [97mupdate_customer.py[0m [90m(./src/application/customer/update_customer.py)[0m
+    │   │   ├── [96mexceptions/[0m
+    │   │   │   ├── [97m__init__.py[0m [90m(./src/application/exceptions/__init__.py)[0m
+    │   │   │   ├── [97mcatalog.py[0m [90m(./src/application/exceptions/catalog.py)[0m
+    │   │   │   ├── [97mcreate_invoice.py[0m [90m(./src/application/exceptions/create_invoice.py)[0m
+    │   │   │   ├── [97mcustomer.py[0m [90m(./src/application/exceptions/customer.py)[0m
+    │   │   │   ├── [97mget_invoice.py[0m [90m(./src/application/exceptions/get_invoice.py)[0m
+    │   │   │   └── [97minventory.py[0m [90m(./src/application/exceptions/inventory.py)[0m
+    │   │   ├── [96minventory/[0m
+    │   │   │   ├── [97mdtos.py[0m [90m(./src/application/inventory/dtos.py)[0m
+    │   │   │   ├── [97mget_low_stock_report.py[0m [90m(./src/application/inventory/get_low_stock_report.py)[0m
+    │   │   │   └── [97mreceive_stock_batch.py[0m [90m(./src/application/inventory/receive_stock_batch.py)[0m
+    │   │   ├── [96minvoice/[0m
+    │   │   │   ├── [97m__init__.py[0m [90m(./src/application/invoice/__init__.py)[0m
+    │   │   │   ├── [97mcreate_invoice.py[0m [90m(./src/application/invoice/create_invoice.py)[0m
+    │   │   │   ├── [97mdtos.py[0m [90m(./src/application/invoice/dtos.py)[0m
+    │   │   │   ├── [97mget_customer_invoices.py[0m [90m(./src/application/invoice/get_customer_invoices.py)[0m
+    │   │   │   └── [97mget_invoice.py[0m [90m(./src/application/invoice/get_invoice.py)[0m
+    │   │   ├── [96mreference_data/[0m
+    │   │   │   ├── [97mcreate_reference_data.py[0m [90m(./src/application/reference_data/create_reference_data.py)[0m
+    │   │   │   ├── [97mdtos.py[0m [90m(./src/application/reference_data/dtos.py)[0m
+    │   │   │   └── [97mget_reference_data.py[0m [90m(./src/application/reference_data/get_reference_data.py)[0m
+    │   │   └── [96msettings/[0m
+    │   │       ├── [97mdtos.py[0m [90m(./src/application/settings/dtos.py)[0m
+    │   │       ├── [97mget_settings.py[0m [90m(./src/application/settings/get_settings.py)[0m
+    │   │       └── [97mupdate_settings.py[0m [90m(./src/application/settings/update_settings.py)[0m
+    │   └── [96mdomain/[0m
+    │       ├── [97m__init__.py[0m [90m(./src/domain/__init__.py)[0m
+    │       ├── [96mentities/[0m
+    │       │   ├── [97m__init__.py[0m [90m(./src/domain/entities/__init__.py)[0m
+    │       │   ├── [97mcustomer.py[0m [90m(./src/domain/entities/customer.py)[0m
+    │       │   ├── [96minvoice/[0m
+    │       │   │   ├── [97m__init__.py[0m [90m(./src/domain/entities/invoice/__init__.py)[0m
+    │       │   │   ├── [97mdraft_invoice.py[0m [90m(./src/domain/entities/invoice/draft_invoice.py)[0m
+    │       │   │   ├── [97minvoice.py[0m [90m(./src/domain/entities/invoice/invoice.py)[0m
+    │       │   │   └── [97minvoice_item.py[0m [90m(./src/domain/entities/invoice/invoice_item.py)[0m
+    │       │   ├── [97mnotebook.py[0m [90m(./src/domain/entities/notebook.py)[0m
+    │       │   ├── [97mpen.py[0m [90m(./src/domain/entities/pen.py)[0m
+    │       │   ├── [97mruler.py[0m [90m(./src/domain/entities/ruler.py)[0m
+    │       │   ├── [97mschoolbook.py[0m [90m(./src/domain/entities/schoolbook.py)[0m
+    │       │   ├── [97msettings.py[0m [90m(./src/domain/entities/settings.py)[0m
+    │       │   └── [97mstock_batch.py[0m [90m(./src/domain/entities/stock_batch.py)[0m
+    │       ├── [96mexceptions/[0m
+    │       │   ├── [97m__init__.py[0m [90m(./src/domain/exceptions/__init__.py)[0m
+    │       │   ├── [97mbase.py[0m [90m(./src/domain/exceptions/base.py)[0m
+    │       │   ├── [96minvoice/[0m
+    │       │   │   ├── [97m__init__.py[0m [90m(./src/domain/exceptions/invoice/__init__.py)[0m
+    │       │   │   ├── [97mexceptions.py[0m [90m(./src/domain/exceptions/invoice/exceptions.py)[0m
+    │       │   │   ├── [97minvoice.py[0m [90m(./src/domain/exceptions/invoice/invoice.py)[0m
+    │       │   │   └── [97minvoice_item.py[0m [90m(./src/domain/exceptions/invoice/invoice_item.py)[0m
+    │       │   ├── [97mmoney.py[0m [90m(./src/domain/exceptions/money.py)[0m
+    │       │   ├── [97mnotebook.py[0m [90m(./src/domain/exceptions/notebook.py)[0m
+    │       │   ├── [97mruler.py[0m [90m(./src/domain/exceptions/ruler.py)[0m
+    │       │   ├── [97mshared.py[0m [90m(./src/domain/exceptions/shared.py)[0m
+    │       │   └── [97mstock_batch.py[0m [90m(./src/domain/exceptions/stock_batch.py)[0m
+    │       ├── [96minterfaces/[0m
+    │       │   ├── [97m__init__.py[0m [90m(./src/domain/interfaces/__init__.py)[0m
+    │       │   ├── [97mcustomer_repository.py[0m [90m(./src/domain/interfaces/customer_repository.py)[0m
+    │       │   ├── [97minvoice_repository.py[0m [90m(./src/domain/interfaces/invoice_repository.py)[0m
+    │       │   ├── [97mproduct_repository.py[0m [90m(./src/domain/interfaces/product_repository.py)[0m
+    │       │   ├── [97mreference_repository.py[0m [90m(./src/domain/interfaces/reference_repository.py)[0m
+    │       │   ├── [97msettings_repository.py[0m [90m(./src/domain/interfaces/settings_repository.py)[0m
+    │       │   ├── [97mstock_batch_repository.py[0m [90m(./src/domain/interfaces/stock_batch_repository.py)[0m
+    │       │   └── [97muow.py[0m [90m(./src/domain/interfaces/uow.py)[0m
+    │       └── [96mshared/[0m
+    │           ├── [97m__init__.py[0m [90m(./src/domain/shared/__init__.py)[0m
+    │           ├── [97mbase.py[0m [90m(./src/domain/shared/base.py)[0m
+    │           ├── [97mutils.py[0m [90m(./src/domain/shared/utils.py)[0m
+    │           └── [97mvalue_objects.py[0m [90m(./src/domain/shared/value_objects.py)[0m
+    └── [96mtests/[0m
+        ├── [97m__init__.py[0m [90m(./tests/__init__.py)[0m
+        ├── [96mfakes/[0m
+        │   ├── [97m__init__.py[0m [90m(./tests/fakes/__init__.py)[0m
+        │   ├── [97mfake_repositories.py[0m [90m(./tests/fakes/fake_repositories.py)[0m
+        │   └── [97mfake_uow.py[0m [90m(./tests/fakes/fake_uow.py)[0m
+        └── [96munit/[0m
+            ├── [97m__init__.py[0m [90m(./tests/unit/__init__.py)[0m
+            ├── [96mapplication/[0m
+            │   ├── [97m__init__.py[0m [90m(./tests/unit/application/__init__.py)[0m
+            │   ├── [96mcatalog/[0m
+            │   │   ├── [97mtest_create_product.py[0m [90m(./tests/unit/application/catalog/test_create_product.py)[0m
+            │   │   ├── [97mtest_get_product.py[0m [90m(./tests/unit/application/catalog/test_get_product.py)[0m
+            │   │   └── [97mtest_update_product_price.py[0m [90m(./tests/unit/application/catalog/test_update_product_price.py)[0m
+            │   ├── [96mcustomer/[0m
+            │   │   ├── [97mtest_get_customer.py[0m [90m(./tests/unit/application/customer/test_get_customer.py)[0m
+            │   │   ├── [97mtest_register_customer.py[0m [90m(./tests/unit/application/customer/test_register_customer.py)[0m
+            │   │   └── [97mtest_update_customer.py[0m [90m(./tests/unit/application/customer/test_update_customer.py)[0m
+            │   ├── [96minventory/[0m
+            │   │   ├── [97mtest_get_low_stock_report.py[0m [90m(./tests/unit/application/inventory/test_get_low_stock_report.py)[0m
+            │   │   └── [97mtest_receive_stock_batch.py[0m [90m(./tests/unit/application/inventory/test_receive_stock_batch.py)[0m
+            │   ├── [96minvoice/[0m
+            │   │   ├── [97m__init__.py[0m [90m(./tests/unit/application/invoice/__init__.py)[0m
+            │   │   ├── [97mtest_create_invoice.py[0m [90m(./tests/unit/application/invoice/test_create_invoice.py)[0m
+            │   │   ├── [97mtest_get_customer_invoices.py[0m [90m(./tests/unit/application/invoice/test_get_customer_invoices.py)[0m
+            │   │   └── [97mtest_get_invoice.py[0m [90m(./tests/unit/application/invoice/test_get_invoice.py)[0m
+            │   ├── [96mreference_data/[0m
+            │   │   ├── [97mtest_create_reference_data.py[0m [90m(./tests/unit/application/reference_data/test_create_reference_data.py)[0m
+            │   │   └── [97mtest_get_reference_data.py[0m [90m(./tests/unit/application/reference_data/test_get_reference_data.py)[0m
+            │   └── [96msettings/[0m
+            │       ├── [97mtest_get_settings.py[0m [90m(./tests/unit/application/settings/test_get_settings.py)[0m
+            │       └── [97mtest_update_settings.py[0m [90m(./tests/unit/application/settings/test_update_settings.py)[0m
+            ├── [97mconftest.py[0m [90m(./tests/unit/conftest.py)[0m
+            └── [96mdomain/[0m
+                ├── [97m__init__.py[0m [90m(./tests/unit/domain/__init__.py)[0m
+                ├── [96mentities/[0m
+                │   ├── [97m__init__.py[0m [90m(./tests/unit/domain/entities/__init__.py)[0m
+                │   ├── [96minvoice/[0m
+                │   │   ├── [97m__init__.py[0m [90m(./tests/unit/domain/entities/invoice/__init__.py)[0m
+                │   │   ├── [97mtest_draft_invoice.py[0m [90m(./tests/unit/domain/entities/invoice/test_draft_invoice.py)[0m
+                │   │   ├── [97mtest_invoice.py[0m [90m(./tests/unit/domain/entities/invoice/test_invoice.py)[0m
+                │   │   └── [97mtest_invoice_item.py[0m [90m(./tests/unit/domain/entities/invoice/test_invoice_item.py)[0m
+                │   ├── [97mtest_customer.py[0m [90m(./tests/unit/domain/entities/test_customer.py)[0m
+                │   ├── [97mtest_notebook.py[0m [90m(./tests/unit/domain/entities/test_notebook.py)[0m
+                │   ├── [97mtest_pen.py[0m [90m(./tests/unit/domain/entities/test_pen.py)[0m
+                │   ├── [97mtest_ruler.py[0m [90m(./tests/unit/domain/entities/test_ruler.py)[0m
+                │   ├── [97mtest_schoolbook.py[0m [90m(./tests/unit/domain/entities/test_schoolbook.py)[0m
+                │   ├── [97mtest_settings.py[0m [90m(./tests/unit/domain/entities/test_settings.py)[0m
+                │   └── [97mtest_stock_batch.py[0m [90m(./tests/unit/domain/entities/test_stock_batch.py)[0m
+                └── [96mshared/[0m
+                    ├── [97m__init__.py[0m [90m(./tests/unit/domain/shared/__init__.py)[0m
+                    ├── [97mtest_base.py[0m [90m(./tests/unit/domain/shared/test_base.py)[0m
+                    ├── [97mtest_utils.py[0m [90m(./tests/unit/domain/shared/test_utils.py)[0m
+                    └── [97mtest_value_objects.py[0m [90m(./tests/unit/domain/shared/test_value_objects.py)[0m
+[92m=============================[0m
+

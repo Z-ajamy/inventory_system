@@ -1,5 +1,6 @@
 from domain.exceptions.base import EntitiesBaseError
 
+
 class CustomerNotFoundError(EntitiesBaseError):
     def __init__(self, customer_id: str):
         super().__init__(

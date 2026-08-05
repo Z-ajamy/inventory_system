@@ -9,11 +9,8 @@ class CreateReferenceDataUseCase:
 
     def execute(self, request: CreateInfoRequestDTO) -> str:
         with self.uow as db:
-            info = Info(
-                init_name=request.name,
-                category=request.category
-            )
-            
+            info = Info(init_name=request.name, category=request.category)
+
             db.reference_data.save(info)
             db.commit()
 

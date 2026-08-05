@@ -14,7 +14,5 @@ class GetCustomerUseCase:
                 raise CustomerNotFoundError(customer_id=customer_id)
 
             return CustomerResponseDTO(
-                id=customer.id,
-                name=customer.name,
-                phone=customer.phone
+                id=customer.id, name=customer.name, phone=customer.phone
             )

@@ -1,11 +1,12 @@
-import pytest
 from decimal import Decimal
+
+import pytest
 
 from application.catalog.create_product import CreatePenUseCase
 from application.catalog.dtos import CreatePenRequestDTO
 from application.exceptions.catalog import DuplicateSkuError, ReferenceNotFoundError
 from domain.entities.pen import PenProduct
-from domain.shared.base import Brand, InfoCategory, ProductFamily
+from domain.shared.base import Brand, ProductFamily
 from domain.shared.value_objects import Money
 from tests.fakes.fake_uow import FakeUnitOfWork
 
@@ -19,7 +20,7 @@ def test_create_pen_success(fake_uow: FakeUnitOfWork):
         brand_id=brand.id,
         selling_price=Decimal("15.50"),
         color_id="color-red",
-        pen_type_id="type-ballpoint"
+        pen_type_id="type-ballpoint",
     )
     use_case = CreatePenUseCase(uow=fake_uow)
 
@@ -35,15 +36,20 @@ def test_create_pen_success(fake_uow: FakeUnitOfWork):
 
 def test_create_pen_raises_duplicate_sku(fake_uow: FakeUnitOfWork):
     existing_pen = PenProduct(
-        brand_id="brand-1", init_sku="PEN-100", 
+        brand_id="brand-1",
+        init_sku="PEN-100",
         init_selling_price=Money(amount=Decimal("10.0")),
-        init_color_id="c1", init_pen_type_id="t1"
+        init_color_id="c1",
+        init_pen_type_id="t1",
     )
     fake_uow.products.save(existing_pen)
 
     request = CreatePenRequestDTO(
-        sku="PEN-100", brand_id="brand-1", selling_price=Decimal("15.0"),
-        color_id="c1", pen_type_id="t1"
+        sku="PEN-100",
+        brand_id="brand-1",
+        selling_price=Decimal("15.0"),
+        color_id="c1",
+        pen_type_id="t1",
     )
     use_case = CreatePenUseCase(uow=fake_uow)
 
@@ -53,8 +59,11 @@ def test_create_pen_raises_duplicate_sku(fake_uow: FakeUnitOfWork):
 
 def test_create_pen_raises_brand_not_found(fake_uow: FakeUnitOfWork):
     request = CreatePenRequestDTO(
-        sku="PEN-200", brand_id="invalid-brand", selling_price=Decimal("15.0"),
-        color_id="c1", pen_type_id="t1"
+        sku="PEN-200",
+        brand_id="invalid-brand",
+        selling_price=Decimal("15.0"),
+        color_id="c1",
+        pen_type_id="t1",
     )
     use_case = CreatePenUseCase(uow=fake_uow)
 

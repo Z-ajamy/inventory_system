@@ -1,5 +1,6 @@
 from dataclasses import dataclass
 from decimal import Decimal
+
 from domain.shared.base import ProductFamily
 
 
@@ -11,6 +12,7 @@ class CreatePenRequestDTO:
     color_id: str
     pen_type_id: str
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class CreateRulerRequestDTO:
     sku: str
@@ -19,6 +21,7 @@ class CreateRulerRequestDTO:
     ruler_type_id: str
     length_cm: int
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class CreateNoteBookRequestDTO:
     sku: str
@@ -26,6 +29,7 @@ class CreateNoteBookRequestDTO:
     selling_price: Decimal
     page_count: int
     type_id: str
+
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class CreateSchoolBookRequestDTO:
@@ -36,10 +40,12 @@ class CreateSchoolBookRequestDTO:
     class_id: str
     academic_year: str
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class UpdateProductPriceRequestDTO:
     product_id: str
     new_price: Decimal
+
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class ProductResponseDTO:

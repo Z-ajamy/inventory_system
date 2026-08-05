@@ -1,9 +1,11 @@
 from dataclasses import dataclass
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class RegisterCustomerRequestDTO:
     name: str
     phone: str | None = None
+
 
 @dataclass(slots=True, frozen=True, kw_only=True)
 class UpdateCustomerRequestDTO:

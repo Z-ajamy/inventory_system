@@ -13,7 +13,7 @@ def test_register_customer_success(fake_uow: FakeUnitOfWork):
     customer_id = use_case.execute(request)
 
     assert fake_uow.committed is True
-    
+
     saved_customer = fake_uow.customers.get_by_id(customer_id)
     assert saved_customer is not None
     assert saved_customer.name == "John Doe"

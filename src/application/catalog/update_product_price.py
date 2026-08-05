@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 from application.catalog.dtos import UpdateProductPriceRequestDTO
 from application.exceptions.catalog import ProductNotFoundError
 from domain.interfaces.uow import UnitOfWorkProtocol
@@ -15,7 +16,9 @@ class UpdateProductPriceUseCase:
             if not product:
                 raise ProductNotFoundError(product_id=request.product_id)
 
-            product.change_price(new_price=Money(amount=Decimal(str(request.new_price))))
-            
+            product.change_price(
+                new_price=Money(amount=Decimal(str(request.new_price)))
+            )
+
             db.products.save(product)
             db.commit()

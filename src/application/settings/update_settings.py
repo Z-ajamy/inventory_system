@@ -17,7 +17,7 @@ class UpdateSystemSettingsUseCase:
                     amount=Decimal(str(request.max_anonymous_invoice_amount))
                 )
             )
-            
+
             db.settings.save(new_settings)
             db.commit()
 

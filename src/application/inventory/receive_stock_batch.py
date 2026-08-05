@@ -1,4 +1,5 @@
 from decimal import Decimal
+
 from application.exceptions.inventory import InventoryProductNotFoundError
 from application.inventory.dtos import ReceiveStockBatchRequestDTO
 from domain.entities.stock_batch import StockBatch
@@ -20,7 +21,7 @@ class ReceiveStockBatchUseCase:
                 init_product_id=request.product_id,
                 init_init_quantity=request.quantity,
                 init_current_quantity=request.quantity,
-                unit_cost=Money(amount=Decimal(str(request.unit_cost)))
+                unit_cost=Money(amount=Decimal(str(request.unit_cost))),
             )
 
             db.batches.save(batch)

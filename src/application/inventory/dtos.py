@@ -2,6 +2,7 @@ from dataclasses import dataclass
 from datetime import datetime
 from decimal import Decimal
 
+
 @dataclass(slots=True, frozen=True, kw_only=True)
 class ReceiveStockBatchRequestDTO:
     product_id: str
@@ -9,7 +10,6 @@ class ReceiveStockBatchRequestDTO:
     unit_cost: Decimal
 
 
-# --- DTOs للمخرجات (Responses) ---
 @dataclass(slots=True, frozen=True, kw_only=True)
 class LowStockBatchResponseDTO:
     batch_id: str

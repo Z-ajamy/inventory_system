@@ -1,5 +1,6 @@
 from domain.exceptions.base import EntitiesBaseError
 
+
 class DuplicateSkuError(EntitiesBaseError):
     def __init__(self, sku: str):
         super().__init__(
@@ -8,6 +9,7 @@ class DuplicateSkuError(EntitiesBaseError):
             context={"sku": sku},
         )
 
+
 class ReferenceNotFoundError(EntitiesBaseError):
     def __init__(self, ref_type: str, ref_id: str):
         super().__init__(
@@ -15,6 +17,7 @@ class ReferenceNotFoundError(EntitiesBaseError):
             code="REFERENCE_NOT_FOUND",
             context={"ref_type": ref_type, "ref_id": ref_id},
         )
+
 
 class ProductNotFoundError(EntitiesBaseError):
     def __init__(self, product_id: str):

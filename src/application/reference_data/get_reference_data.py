@@ -10,12 +10,8 @@ class GetReferenceDataByCategoryUseCase:
     def execute(self, category: InfoCategory) -> tuple[InfoResponseDTO, ...]:
         with self.uow as db:
             items = db.reference_data.get_by_category(category=category)
-            
+
             return tuple(
-                InfoResponseDTO(
-                    id=item.id,
-                    name=item.name,
-                    category=item.category
-                )
+                InfoResponseDTO(id=item.id, name=item.name, category=item.category)
                 for item in items
             )

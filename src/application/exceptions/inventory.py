@@ -1,5 +1,6 @@
 from domain.exceptions.base import EntitiesBaseError
 
+
 class InventoryProductNotFoundError(EntitiesBaseError):
     def __init__(self, product_id: str):
         super().__init__(
